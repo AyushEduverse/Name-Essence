@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Essence | Discover Your Aura</title>
+    <meta name="description"
+        content="Enter your name and discover your hidden personality traits, lucky number, and destiny aura.">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ca8a04">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header class="hero">
+            <h1 class="title">Name <span class="accent">Essence</span></h1>
+            <p class="subtitle">Every name carries a vibration. What does yours say?</p>
+        </header>
+
+        <section class="input-section">
+            <div class="input-group">
+                <input type="text" id="nameInput" placeholder="Enter your name..." autocomplete="off">
+                <button id="analyzeBtn">Reveal Essence</button>
+            </div>
+        </section>
+
+        <section id="resultSection" class="result-section hidden">
+            <div class="result-card">
+                <div class="aura-display">
+                    <div id="auraCircle" class="aura-circle"></div>
+                    <h2 id="displayName" class="display-name"></h2>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">Personality</span>
+                        <span id="personality" class="stat-value">Dynamic</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Lucky Number</span>
+                        <span id="luckyNumber" class="stat-value">7</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Spirit Element</span>
+                        <span id="element" class="stat-value">Starlight</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Destiny Path</span>
+                        <span id="destiny" class="stat-value">The Creator</span>
+                    </div>
+                </div>
+
+                <div class="description-box">
+                    <p id="description"></p>
+                </div>
+
+                <button id="resetBtn" class="secondary-btn">Try Another Name</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker registered'))
+                    .catch(err => console.log('Service Worker registration failed', err));
+            });
+        }
+    </script>
+</body>
+
+</html>
